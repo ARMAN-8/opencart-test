@@ -1,0 +1,40 @@
+/* Buttons */
+
+.btn
+    background-color: $block-color!important
+    background-image: $func-button-grad
+    border-radius: 0
+    border: none
+    color: $text-color!important
+    padding: .65rem 1.4rem
+    line-height: 1.5
+    transition: none
+
+    &:hover, &:focus, &:active
+        box-shadow: none
+        background-color: $text-color!important
+        background-image: $func-button-grad-hover
+        color: $block-color!important
+        outline: none!important
+
+    &:active
+        box-shadow: inset .1rem .1rem .3rem rgba(0,0,0,0.5)
+
+    &-default-x
+        background-color: transparent
+        border: none
+        color: $accent-color
+        font-size: 1.4rem
+        letter-spacing: .1rem
+        padding: 0
+        transition: .2s ease color
+
+        &:hover, &:focus
+            color: darken($accent-color, 20%)
+            outline: none
+
+.close
+    color: $text-color
+    font-size: 2rem
+    text-shadow: none
+    outline: none

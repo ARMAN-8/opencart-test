@@ -1,0 +1,70 @@
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="row footerLinks">
+      {% if informations %}
+      <div class="col-sm-3 footerLinks__block">
+        <h5 class="footerLinks__title">{{ text_information }}</h5>
+        <ul class="footerLinks__list list-unstyled">
+          {% for information in informations %}
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ information.href }}">{{ information.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      <div class="col-sm-3 footerLinks__block">
+        <h5 class="footerLinks__title">{{ text_service }}</h5>
+        <ul class="footerLinks__list list-unstyled">
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ contact }}">{{ text_contact }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ return }}">{{ text_return }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 footerLinks__block">
+        <h5 class="footerLinks__title">{{ text_extra }}</h5>
+        <ul class="footerLinks__list list-unstyled">
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ voucher }}">{{ text_voucher }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ special }}">{{ text_special }}</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 footerLinks__block">
+        <h5 class="footerLinks__title">{{ text_account }}</h5>
+        <ul class="footerLinks__list list-unstyled">
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ account }}">{{ text_account }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ order }}">{{ text_order }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+          <li class="footerLinks__listElement"><a class="footerLinks__link" href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row footerPowered">
+      <div class="col-sm-12 footerPowered__block">
+        <ul class="footerPowered__list footerPowered__powered list-unstyled pull-left">
+          <li class="footerPowered__listElement"><p class="footerPowered__text">{{ powered }}</p></li>
+        </ul>
+        <ul class="footerPowered__list footerPowered__links list-inline pull-left">
+          {% if instagram %}
+          <li class="footerPowered__listElement"><a class="footerPowered__link" href="{{ instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          {% endif %}
+          {% if vk %}
+          <li class="footerPowered__listElement"><a class="footerPowered__link" href="{{ vk }}" target="_blank"><i class="fa fa-vk"></i></a></li>
+          {% endif %}
+          {% if twitter %}
+          <li class="footerPowered__listElement"><a class="footerPowered__link" href="{{ twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          {% endif %}
+          {% if facebook %}
+          <li class="footerPowered__listElement"><a class="footerPowered__link" href="{{ facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="catalog/view/theme/default_x/javascript/libs/jquery.equalheight.min.js"></script>
+<script src="catalog/view/theme/default_x/javascript/all.js"></script> {% for script in scripts %}
+<script src="{{ script }}"></script> {% endfor %}
+</body>
+
+</html>

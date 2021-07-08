@@ -1,0 +1,31 @@
+<div class="buttons">
+    <div class="pull-right">
+        <a href="javascript:void(null);" id="cloudpayments-pay-btn" class="btn btn-primary">{{ button_continue }}</a>
+    </div>
+</div>
+
+<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+<script type="text/javascript">
+    (function($) {
+        var payHandler = function () {
+            var widget = new cp.CloudPayments();
+            widget.{{ cloudpayments_method }}({ // options
+                    publicId: '{{ cloudpayments_publicid }}',
+                    description: '{{ payment_to }}',
+                    amount: {{ amount }},
+                    currency: '{{ currency }}',
+                    invoiceId: '{{ invoice_id }}',
+                    accountId: '{{ account_id }}'
+                },
+                function (options) { // success
+                    location.href = '{{ success }}'
+                },
+                function (reason, options) { // fail
+                    location.href = '{{ failure }}'
+                });
+
+            return false;
+        };
+        $("#cloudpayments-pay-btn").on("click", payHandler);
+    })(jQuery);
+</script>

@@ -1,0 +1,29 @@
+/* Modal */
+
+.modal
+
+    @media (min-width: $screen-md-min)
+        text-align: center
+        padding: 0!important
+
+        &:before
+            display: inline-block
+            vertical-align: middle
+            content: ''
+            height: 100%
+
+        &-dialog
+            display: inline-block
+            text-align: left
+            vertical-align: middle
+
+    &-content
+        background-color: $block-color
+        background-image: $func-block-grad
+        border-radius: 0
+
+    &-body
+        padding: 2rem
+
+    label
+        margin-bottom: .5rem!important

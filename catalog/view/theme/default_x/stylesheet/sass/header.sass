@@ -1,0 +1,453 @@
+/* Header */
+
+.header
+    background-color: $body-color
+    width: 100%
+    z-index: 1000
+
+/* Logo */
+
+.logo
+
+    &__link
+        color: inherit
+
+    &__img
+        max-height: 4rem
+        margin: 1rem 0
+
+    &__title
+        font-size: 3rem
+        line-height: 4rem
+        margin: 1rem 0
+
+/* Menu list */
+
+.listMenu
+
+    &__element
+        display: inline-block
+        position: relative
+
+    &__link
+        display: block
+        cursor: pointer
+        font-size: 1.6rem
+        padding: 2.2rem 2rem
+        position: relative
+        transition: none
+
+        &-cartActive::before
+            background-color: $red
+            border-radius: 100%
+            content: ''
+            display: block
+            position: absolute
+            top: 2rem
+            left: 1.4rem
+            height: .4rem
+            width: .4rem
+
+        &:hover, &:focus
+            background-image: $button-grad
+            color: $body-color
+
+    &__wrapper
+        background-color: $block-color
+        box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15)
+        display: none
+        position: absolute
+        top: 100%
+        text-align: left
+        right: 0
+        min-width: 16rem
+        z-index: 1
+
+
+/* Dropdown menu */
+
+.menuDropdown
+    font-size: 1.6rem
+    padding: 0
+    margin: 0
+
+    &__wrapper
+        background-color: $block-color
+        box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15)
+        position: absolute
+        top: 0
+        right: 100%
+        white-space: nowrap
+        z-index: 2
+
+    &__link
+        background-color: transparent
+        border: none
+        display: inline-block
+        color: $text-color
+        cursor: pointer
+        font-size: inherit
+        outline: none
+        padding: 1rem 1.5rem
+        margin: 0
+        letter-spacing: .1rem
+        line-height: 1.9rem
+        text-align: left
+        transition: none
+        white-space: nowrap
+        width: 100%
+        
+        i, .icon
+            display: inline-block
+            min-width: 1.9rem
+            text-align: center
+
+        &:hover, &:focus
+            background-color: $text-color
+            color: $block-color
+
+    &__element.submenu
+        position: relative
+
+        .menuDropdown__wrapper
+            display: none
+
+            .menuDropdown
+                display: inline-block
+                vertical-align: top
+
+    &__search
+        padding: 1rem 1.5rem
+        width: 20rem
+        
+        button
+            font-size: 1.6rem
+            padding: 0
+            margin-right: .6rem
+
+            &:hover, &:focus, &:active
+                background-color: transparent
+                color: $text-color
+                box-shadow: none
+
+        input
+            background-color: transparent
+            border: none
+            box-shadow: none
+            color: $text-color
+            font-size: 1.6rem
+            padding: 0
+            height: auto
+            z-index: 1!important
+
+            &::placeholder
+                color: $text-color
+
+            &:hover, &:focus, &:active
+                background-color: transparent
+                border: none
+                box-shadow: none
+                outline: none
+
+p.menuDropdown__link
+    cursor: auto
+    text-align: center
+
+    &:hover, &:focus
+        background-color: transparent
+        color: $text-color
+
+/* Cart */
+
+.listMenu__cart
+
+    .table
+        margin-bottom: 1rem
+
+    .menuDropdown
+        overflow-x: hidden
+
+    .menuDropdown__products
+        max-height: 20rem
+        overflow-y: auto
+    
+    .cartProducts, .cartVouchers, .cartInfo
+
+        td
+            border: none
+            font-size: 1.4rem
+            font-weight: 300
+            padding: 1rem
+            line-height: 1
+            vertical-align: middle
+
+            &:first-child
+                padding-left: 0
+
+            &:last-child
+                padding-right: 0
+
+        &__name
+            line-height: 1.4!important
+            min-width: 15rem
+
+    .cartProducts
+
+        &__name
+            min-width: 14rem
+
+        &__link
+            padding: 0
+
+            &:hover, &:focus, &:active
+                color: $text-color
+                background-color: transparent
+
+        &__removeButton
+            background-color: transparent
+            border: none
+            border-radius: .3rem
+            padding: .5rem
+            text-align: center
+            width: 2.6rem
+            height: 2.6rem
+
+            &:hover, &:focus, &:active
+                background-color: $text-color
+                box-shadow: none
+                color: $block-color
+                outline: none
+
+        &__quantity
+            white-space: nowrap
+        
+        &__img
+
+            img
+                border-radius: .3rem
+                border: none
+                max-width: 4rem
+                max-height: 4rem
+
+    .cartInfo
+
+        td
+            padding: .7rem 1rem
+
+        &:first-child
+
+            td
+                border-top: .1rem solid $text-color
+                padding-top: 2rem
+
+    .cartButtons
+        display: flex
+        flex-flow: row nowrap
+        padding: 0 0 2rem 0
+        margin: 0
+        white-space: nowrap
+
+        &__link
+            color: $accent-color
+            font-size: 1.4rem
+            padding: 0
+            transition: .2s ease color
+
+            &:hover, &:focus, &:active
+                background-color: transparent
+                color: darken($accent-color, 20%)
+
+/* Media queries */
+
+$slidenav-time: .3s
+
+@media (min-width: $screen-md-min)
+
+    .listMenu__cart
+        padding: 0 1.5rem
+
+        .menuDropdown__products
+            margin-right: -1.7rem
+            overflow-y: scroll
+
+    .listMenu__element:hover
+        
+        .listMenu
+            
+            &__wrapper
+                display: block
+                
+            &__link
+                background-image: $button-grad
+                color: $body-color
+
+    .menuDropdown__element.submenu:hover
+        
+        .menuDropdown__wrapper
+            display: block
+
+
+@media (max-width: $screen-md-max)
+
+    .header
+        position: fixed
+        top: 0
+        right: 0
+    
+    .main
+        margin-top: 5rem
+    
+    .logo
+
+        &__img
+            max-height: 3rem
+            margin: 1rem 0
+
+        &__title
+            font-size: 2.5rem
+            line-height: 3rem
+            margin: 1rem 0
+
+    .closeButton
+        cursor: pointer
+        font-size: 2rem
+        height: 3rem
+        line-height: 3rem
+        padding: 0
+        position: absolute
+        right: 2rem
+        text-align: center
+        top: 2rem
+        transition: .2s ease color
+        width: 3rem
+
+        &:hover, &:focus, &:active
+            background-color: transparent
+            color: $accent-color
+
+    .listMenu
+
+        &__link
+            line-height: 1.9rem
+            padding: 1.5rem
+            transition: .2s ease color
+
+            &-cartActive::before
+                top: 1.3rem
+                left: .9rem
+
+            &:hover, &:focus
+                background-image: none
+                color: $accent-color
+
+        &__link.bars
+            line-height: 1
+            padding: 1.7rem
+
+        &__link-cartActive.bars
+
+            &::before
+                top: 1.5rem
+                left: 3.2rem
+
+        &__element
+            width: 20rem
+
+        &__wrapperOut, &__wrapper
+            align-items: center
+            background-color: $body-color
+            display: flex
+            flex-flow: column
+            justify-content: center
+            overflow: hidden
+            position: fixed
+            top: 0
+            transition: $slidenav-time
+            right: 0
+            height: 100%
+            width: 0
+
+            &-open
+                width: 100%
+
+        &__wrapperOut
+            padding-top: 7rem
+            padding-bottom: 7rem
+            top: -7rem
+            transform: translateY(7rem)
+            z-index: 1
+
+        &__wrapper
+            min-width: 0
+            z-index: 2
+
+        &__cart
+
+            .menuDropdown
+                max-height: 70vh
+                padding: 0 1.5rem
+                width: auto
+
+            .cartProducts__name
+                min-width: 0
+
+            .cartButtons
+                white-space: normal
+
+        &__cart, &__contacts, &__menu
+
+            .menuDropdown
+                width: auto
+                min-width: 20rem
+
+    .menuDropdown
+        overflow-y: auto
+        overflow-x: hidden
+        max-height: 20rem
+        width: 20rem
+        -webkit-overflow-scrolling:touch
+
+        &__link
+            transition: .2s ease color
+            white-space: normal
+            
+            &:hover, &:focus
+                background-color: transparent
+                color: $accent-color
+
+        &__wrapper
+            align-items: center
+            background-color: $body-color
+            box-shadow: none
+            display: flex!important
+            flex-flow: column
+            justify-content: center
+            overflow: hidden
+            position: fixed
+            top: 0
+            transition: $slidenav-time
+            right: 0
+            height: 100%
+            width: 0
+
+            &-open
+                width: 100%
+
+        &__element.submenu
+
+            .menuDropdown
+                display: block!important
+                max-height: 100%
+                overflow: auto
+
+    .submenu
+
+        &__wrapper
+            overflow-y: auto
+            max-height: 20rem
+            min-width: 20rem
+            -webkit-overflow-scrolling:touch
+            
+
+    p.menuDropdown__link
+        white-space: normal

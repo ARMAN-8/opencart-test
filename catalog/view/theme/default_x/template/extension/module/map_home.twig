@@ -1,0 +1,26 @@
+{% if geocode and status == 1 %}
+<div class="map-home">
+    <h3 class='map-home-title mainTitle'>{{ text_titlemap }}</h3>
+    <div id="map-home-inner" class="map-home-inner"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_key }}&callback=initMap"></script>
+    <script>
+        function initMap() {
+            var lat_lng = new google.maps.LatLng({{ geocode }});
+            var map = new google.maps.Map(document.getElementById('map-home-inner'), {
+                zoom: 17,
+                center: lat_lng,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
+                scrollwheel: false
+            });
+            var marker = new google.maps.Marker({
+                position: lat_lng,
+                map: map
+            });
+        }
+    </script>
+</div>
+{% endif %}

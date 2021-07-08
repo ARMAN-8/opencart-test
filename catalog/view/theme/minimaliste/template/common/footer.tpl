@@ -1,0 +1,49 @@
+<div id="footer">
+  <div class="div1"><?php echo $text_powered_by; ?> designed by <a href="http://nikoadinugroho.wordpress.com">Niko Adi Nugroho</a></div>
+  <div class="div2"><a onclick="window.open('https://www.paypal.com/id/mrb/pal=KU53PA2FCMZSC');"><img src="catalog/view/theme/minimaliste/image/payment.png" alt="" /></a></div>
+</div>
+</div>
+<?php echo $google_analytics; ?>
+
+<script type="text/javascript"><!--
+$(document).ready(function () {
+	//To switch directions up/down and left/right just place a "-" in front of the top/left attribute
+	//Vertical Sliding
+	$('.boxgrid.slidedown').hover(function(){
+		$(".cover", this).stop().animate({top:'-260px'},{queue:false,duration:300});
+	}, function() {
+		$(".cover", this).stop().animate({top:'0px'},{queue:false,duration:300});
+	});
+	//Horizontal Sliding
+	$('.boxgrid.slideright').hover(function(){
+		$(".cover", this).stop().animate({left:'325px'},{queue:false,duration:300});
+	}, function() {
+		$(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300});
+	});
+	//Diagnal Sliding
+	$('.boxgrid.thecombo').hover(function(){
+		$(".cover", this).stop().animate({top:'260px', left:'325px'},{queue:false,duration:300});
+	}, function() {
+		$(".cover", this).stop().animate({top:'0px', left:'0px'},{queue:false,duration:300});
+	});
+	//Partial Sliding (Only show some of background)
+	$('.boxgrid.peek').hover(function(){
+		$(".cover", this).stop().animate({top:'90px'},{queue:false,duration:160});
+	}, function() {
+		$(".cover", this).stop().animate({top:'0px'},{queue:false,duration:160});
+	});
+	//Full Caption Sliding (Hidden to Visible)
+	$('.boxgrid.captionfull').hover(function(){
+		$(".cover", this).stop().animate({top:'160px'},{queue:false,duration:160});
+	}, function() {
+		$(".cover", this).stop().animate({top:'260px'},{queue:false,duration:160});
+	});
+	//Caption Sliding (Partially Hidden to Visible)
+	$('.boxgrid.caption').hover(function(){
+		$(".cover", this).stop().animate({top:'160px'},{queue:false,duration:160});
+	}, function() {
+		$(".cover", this).stop().animate({top:'220px'},{queue:false,duration:160});
+	});
+});
+//--></script>
+</body></html>

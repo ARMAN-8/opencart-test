@@ -1,0 +1,256 @@
+/* Styled block */
+
+.styled-block, .list-group, .panel, .well, .sidebar
+    background-color: $func-block-back
+    background-image: $func-block-grad
+    box-shadow: none
+
+.panel-group .panel, .panel-default-x
+        background-color: $block-color-dark
+        background-image: none
+
+.dropdown-menu
+    background-image: $category-grad
+    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.15)
+    color: $title-color
+
+.contentWrapper
+    display: inline-block
+    padding: 0 2rem 2rem
+    width: 100%
+    margin-bottom: 3rem
+    font-size: 1.4rem
+    line-height: 1.5
+    overflow-x: auto
+    width: 100%
+
+    &__empty, &__paddingTop
+        padding: 2rem
+
+    &__pagination
+        font-size: 1.2rem
+        padding: 1rem 2rem
+
+    .buttons
+        margin-top: 2rem
+
+/* Pagination */
+
+.pagination
+    margin: 0
+
+    li
+        
+        a, span
+            border: none
+            border-radius: 0
+            background-color: transparent
+            color: $text-color
+            font-weight: 600
+
+            &:hover, &:focus
+                background-color: transparent
+                color: $accent-color
+
+    .active
+        
+        a, span
+            border: none
+            border-radius: 0
+            background-color: transparent
+            color: $accent-color
+
+            &:hover, &:focus
+                background-color: transparent
+                color: $accent-color
+
+.contentWrapper__pagination .row
+    align-items: center
+    display: flex
+    flex-flow: row wrap
+
+    div
+
+        &:first-child
+            line-height: 1
+
+/* Blocks */
+
+.htmlBlock, .blockWithFeedback
+
+    &__content
+        padding: 2rem
+
+        p
+            line-height: 1.5   
+
+.htmlBlock__content p
+    font-size: 1.3rem
+    
+    &:last-child
+        margin-bottom: 0
+
+.htmlBlock__content-oc2 p
+    font-size: 1.4rem
+
+.blockWithFeedback__content
+
+    h3
+        font-size: 1.6rem
+        font-weight: 600
+        line-height: 1.5
+        margin-top: 0
+        margin-bottom: 1.5rem
+    
+    p
+        font-size: 1.4rem
+        margin-bottom: 1.5rem
+
+/* List group */
+
+.list-group, .nav
+    padding: .5rem 0
+    margin-bottom: 3rem
+
+    li a
+        margin-right: 0
+    
+    a
+        border: none
+        color: $text-color
+        font-size: 1.4rem
+        padding: 1.2rem 2rem
+        transition: none
+        line-height: 1.5
+
+        &:first-child, &:last-child
+            border-radius: 0
+
+        &.active, &.active:hover, &.active:focus, &.active:active, &:hover, &:focus, &:active
+            background-color: $text-color
+            color: $block-color
+            border: none
+            text-shadow: none
+
+
+.list-group-item
+    background-color: transparent
+
+/* Panel */
+
+.panel-group .panel
+    border-radius: 0
+
+.panel-default>.panel-heading+.panel-collapse>.panel-body
+    border: none
+
+.panel
+    border: none
+    border-radius: 0
+    box-shadow: none
+    margin-bottom: 2rem
+
+    &-default
+
+        .list-group
+            background-image: none
+            background-color: transparent
+            padding: 0
+
+            &-item
+                border: none
+                padding: 1rem 2rem
+
+        .panel-heading
+            background-color: transparent
+            border: none
+            color: $title-color
+            font-size: 1.8rem
+            padding: 1.5rem 2rem
+    
+    .panel-footer
+        border-radius: 0
+        border: none
+        background-color: transparent
+
+/* Well */
+
+.well
+    border: none
+    border-radius: 0
+
+/* Table */
+
+.table
+    color: $text-color
+    font-size: 1.3rem
+
+    input
+        min-width: 5rem
+
+    thead
+        
+        tr
+            
+            td, th
+                color: $title-color
+                font-weight: 600
+
+    &-responsive
+        border: none
+
+    &-hover
+
+        tbody
+
+            tr
+
+                &:hover
+                    background-color: $block-color-light
+
+    &-bordered
+        border: none
+
+        thead, tbody, tfoot
+
+            tr
+
+                td, th
+                    padding: 1rem 2rem
+                    line-height: 1.5
+                    border-radius: 0
+                    border-left: none
+                    border-right: none
+                    border-width: .3rem
+                    border-color: $block-color
+                    vertical-align: middle
+
+    &-striped
+        
+        tbody
+            
+            tr:nth-of-type(odd)
+                background-color: $block-color
+
+#review .table-striped
+
+    thead, tbody, tfoot
+        
+        tr
+            
+            td, th
+                background-color: $block-color
+
+/* Category List Block */
+
+.categoryListBlock
+
+    &__title
+        display: none
+
+#common-home
+
+    .categoryListBlock
+
+        &__title
+            display: block

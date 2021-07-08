@@ -1,0 +1,50 @@
+<div class="swiper-home">
+  <div class="swiper-viewport">
+    <div id="slideshowHome" class="slideshowHome swiper-container">
+      <div class="swiper-wrapper">
+        {% for banner in banners %}
+        <div class="slideshowHome__item slideItem swiper-slide" style="background-image: url('{{ banner.image }}')">
+          {% if banner.description %}
+          <div class="container">
+            <div class="slideItem__wrapper" {% if banner.position %}style="justify-content:{% if banner.position == 1 %}flex-end{% elseif banner.position == 2 %}center{% endif %}"{% endif %}>
+              <div class="slideItem__inner">
+                {% if banner.link %}
+                <h2 class="slideItem__title"><a href="{{ banner.link }}">{{ banner.title }}</a></h2>
+                <p class="slideItem__text">{{ banner.description }}</p>
+                {% if banner.text_button %}
+                <a class="slideItem__link" href="{{ banner.link }}">{{ banner.text_button }}</a>
+                {% endif %}
+                {% else %}
+                <h2 class="slideItem__title">{{ banner.title }}</h2>
+                <p class="slideItem__text">{{ banner.description }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% elseif banner.link %}
+          <a class="slideItem__link slideItem__link-alone" href="{{ banner.link }}"></a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper-pagination slideshowHome__pagination"></div>
+    <div class="swiper-pager slideshowHome__buttons">
+      <div class="swiper-button-next slideshowHome__buttons-next"></div>
+      <div class="swiper-button-prev slideshowHome__buttons-prev"></div>
+    </div>
+  </div>
+  <script>
+    $('#slideshowHome').swiper({
+      mode: 'horizontal',
+      slidesPerView: 1,
+      pagination: '.slideshowHome__pagination',
+      paginationClickable: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      autoplay: 4000,
+      autoplayDisableOnInteraction: true,
+      loop: true
+    });
+  </script>
+</div>

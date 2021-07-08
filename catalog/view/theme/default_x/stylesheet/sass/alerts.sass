@@ -1,0 +1,93 @@
+/* Alerts */
+
+@keyframes alertShow
+    10%
+        right: 0
+        
+    90%
+        right: 0
+        
+    100%
+        right: -200%
+
+@media (max-width: $screen-sm-max)
+    .alert
+        max-width: 30rem
+
+@media (min-width: $screen-sm-min)
+    .alert
+        max-width: 40rem
+
+.alert
+    animation: alertShow 7s 1
+    animation-fill-mode: forwards
+    background-color: $text-color
+    bottom: 0
+    border: none
+    border-radius: 0
+    box-shadow: 0 .3rem .6rem rgba(0,0,0,0.7)
+    color: $body-color
+    font-size: 1.4rem
+    line-height: 1.5
+    padding: 1.5rem 2.5rem
+    position: fixed
+    right: -200%
+    margin-right: 1rem
+    margin-bottom: 1rem
+    margin-left: 1rem
+    z-index: 99999
+    transition: .5s
+    text-align: center
+
+    a
+        color: $body-color
+        text-decoration: underline
+
+        &:hover, &:focus
+            color: lighten($body-color, 20%)
+
+    &-dismissable, &-dismissible
+        
+        .close
+            color: $body-color
+            position: absolute
+            top: 0
+            right: .4rem
+
+    .close
+        color: $body-color
+        position: absolute
+        top: 0
+        right: .4rem
+        font-size: 2.4rem
+
+    &-success
+        background: #8fc400
+        background-image: linear-gradient(#8fc400 0%,#719b00 100%)
+    
+    &-danger
+        background: #d12100
+        background-image: linear-gradient(#d12100 0%,#9b1900 100%)
+
+    &-primary
+        background: #0078d6
+        background-image: linear-gradient(#0078d6 0%,#005ca5 100%)
+    
+    &-secondary
+        background: #b7b7b7
+        background-image: linear-gradient(#b7b7b7 0%,#999999 100%)
+
+    &-warning
+        background: #e08600
+        background-image: linear-gradient(#e08600 0%,#ad6700 100%)
+
+    &-info
+        background: #00b7e5
+        background-image: linear-gradient(#00b7e5 0%,#0086a8 100%)
+
+.text-danger
+    color: $red
+    font-size: 1.2rem
+
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label
+    color: $red

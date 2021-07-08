@@ -1,0 +1,44 @@
+<span class="listMenu__link" onclick="openSection('listMenu__categories')"><i class="fa fa-shopping-bag" aria-hidden="true"></i>
+  {{ text_category }}</span>
+<div class="listMenu__wrapper listMenu__categories">
+  <span class="closeButton visible-sm visible-xs" onclick="closeSection('listMenu__categories')"><i class="fa fa-chevron-right"
+      aria-hidden="true"></i></span>
+  {% if categories %}
+  <ul class="menuDropdown list-unstyled">
+    {% for category in categories %} {% if category.children %} {% set i = i + 1 %}
+    <li class="menuDropdown__element submenu">
+      <a class="menuDropdown__link submenu__link" href="{{ category.href }}">{{ category.name }}</a>
+      <div class="menuDropdown__wrapper submenu__element">
+        <span class="closeButton submenu__close visible-sm visible-xs"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+        <div class="submenu__wrapper">
+          {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+          <ul class="menuDropdown list-unstyled">
+            {% for child in children %}
+            <li class="menuDropdown__element">
+              <a class="menuDropdown__link" href="{{ child.href }}">{{ child.name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          <ul class="menuDropdown list-unstyled see-all visible-sm visible-xs">
+            <li class="menuDropdown__element">
+              <a class="menuDropdown__link" href="{{ category.href }}">{{ text_all }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    {% else %}
+    <li class="menuDropdown__element">
+      <a class="menuDropdown__link main-category" href="{{ category.href }}">{{ category.name }}</a>
+    </li>
+    {% endif %} {% endfor %}
+  </ul>
+  {% else %}
+  <ul class="menuDropdown list-unstyled">
+    <li class="menuDropdown__element">
+      <p class="menuDropdown__link">{{ text_empty }}</p>
+    </li>
+  </ul>
+  {% endif %}
+</div>

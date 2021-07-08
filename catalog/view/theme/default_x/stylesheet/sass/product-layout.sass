@@ -1,0 +1,110 @@
+/* Product-layout */
+
+.product-layout
+    margin-bottom: 3rem
+    
+    .product-thumb
+        background-color: $func-block-back
+        background-image: $func-block-grad
+        max-width: 26.249rem
+        margin: 0 auto
+
+    .image
+
+        img
+            margin: 0 auto
+
+    .productDescription
+        display: none
+
+    .caption
+        padding: 1.5rem 2rem
+        box-sizing: content-box
+
+        h4
+            font-size: 1.6rem
+            line-height: 1.5
+            margin-top: 0
+            margin-bottom: 1.5rem
+
+            a
+                transition: .2s ease color
+                color: $title-color
+
+                &:hover, &:focus
+                    color: $accent-color
+
+        .price
+            font-size: 1.2rem
+            line-height: 1.5
+            margin-bottom: .5rem
+
+    .button-group
+        display: flex
+        justify-content: space-around
+        width: 100%
+        padding-bottom: 2rem
+
+        button
+            background-color: transparent
+            border: none
+            font-size: 1.6rem
+            transition: .2s ease color, .2s ease text-shadow
+
+            &:hover, &:focus, &:active
+                outline: none
+                text-shadow: .1rem .1rem 1rem rgba(0,0,0,0.3)
+
+            &:hover
+                color: $red
+
+            &:first-child:hover
+                color: $accent-color
+
+            &:last-child:hover
+                color: $yellow
+
+@media (max-width: $screen-sm-max)
+
+    .product-layout .rating
+        display: none
+
+@media (min-width: $screen-md-min)
+
+    .product-layout.product-list
+
+        .content
+            flex-basis: 70%!important
+
+@media (min-width: $screen-sm-min)
+
+    .product-layout.product-list
+
+        .product-thumb
+            align-items: center
+            max-width: 100%
+            display: flex
+
+        .content
+            display: flex
+            flex-flow: column
+            justify-content: space-between
+            flex-basis: 60%
+
+        .caption
+            display: flex
+            flex-flow: column
+            justify-content: space-around
+            height: 100%
+            
+        .productDescription
+            display: block
+            font-size: 1.4rem
+            line-height: 1.5
+
+        .button-group
+            justify-content: flex-start
+            padding: 1.5rem
+
+            button
+                margin-right: 1rem

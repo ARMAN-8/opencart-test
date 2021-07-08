@@ -1,0 +1,20 @@
+/* Breadcrumbs */
+
+.breadcrumb
+    background-color: $func-block-back
+    background-image: $func-block-grad
+    border-radius: 0
+    padding: 1rem 2rem
+    margin: 3rem 0
+    font-size: 1.4rem
+    white-space: nowrap
+    overflow-x: auto
+
+    a
+        margin: 0 .5rem
+        line-height: 1.5
+
+    li+li
+        
+        &:before
+            content: '\203A'

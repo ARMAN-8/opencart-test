@@ -1,0 +1,12 @@
+<div class="storeListBlock">
+  <h2 class="storeListBlock__title mainTitle">{{ heading_title }}</h2>
+  <div class="list-group">
+    {% for store in stores %}
+    {% if store.store_id == store_id %}
+    <a href="{{ store.url }}" class="list-group-item active">{{ store.name }}</a>
+    {% else %}
+    <a href="{{ store.url }}" class="list-group-item">{{ store.name }}</a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,161 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-cloudpayments" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    {% if error_warning %}
+      <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form method="post" enctype="multipart/form-data" id="form" class="form-horizontal">
+          <ul class="nav nav-tabs" id="tabs">
+            <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+            <li><a href="#tab-api" data-toggle="tab">{{ tab_api }}</a></li>
+            <li><a href="#tab-statuscodes" data-toggle="tab">{{ tab_statuscodes }}</a></li>
+            <li><a href="#tab-about" data-toggle="tab">{{ tab_about }}</a></li>
+          </ul>
+
+          <div class="tab-content">
+
+            <div class="tab-pane active" id="tab-general">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_status">{{ entry_status }}</label>
+
+                <div class="col-sm-10">
+                  <select name="payment_cloudpayments_status" id="payment_cloudpayments_status" class="form-control">
+                    {% if payment_cloudpayments_status %}
+                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                    <option value="0">{{ text_disabled }}</option>
+                    {% else %}
+                    <option value="1">{{ text_enabled }}</option>
+                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                    {% endif %}
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_sort_order">{{ entry_sort_order }}</label>
+
+                <div class="col-sm-10">
+                  <input type="text" name="payment_cloudpayments_sort_order" value="{{ payment_cloudpayments_sort_order }}" id="payment_cloudpayments_sort_order" class="form-control" size="3"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_label">{{ entry_label }}</label>
+
+                <div class="col-sm-10">
+                  <input type="text" name="payment_cloudpayments_label" value="{{ payment_cloudpayments_label }}" id="payment_cloudpayments_label" class="form-control"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab-api">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_pay_url">{{ entry_pay_url }}</label>
+
+                <div class="col-sm-10">
+                  <input type="text" name="payment_cloudpayments_pay_url" value="{{ payment_cloudpayments_pay_url }}" id="payment_cloudpayments_pay_url" class="form-control payment_cloudpayments_url" readonly/>
+                </div>
+              </div>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_method">{{ entry_method }}</label>
+
+                <div class="col-sm-10">
+                  <select name="payment_cloudpayments_method" id="payment_cloudpayments_method" class="form-control">
+                      <option value="1"{% if payment_cloudpayments_method == 1 %} selected="selected"{% endif %}>{{ entry_method_1 }}</option>
+                      <option value="2"{% if payment_cloudpayments_method == 2 %} selected="selected"{% endif %}>{{ entry_method_2 }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_publicid">{{ entry_publicid }}</label>
+
+                <div class="col-sm-10">
+                  <input type="text" name="payment_cloudpayments_publicid" value="{{ payment_cloudpayments_publicid }}" id="payment_cloudpayments_publicid" class="form-control"/>
+                </div>
+              </div>
+              <div class="form-group required">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_apisecret">{{ entry_apisecret }}</label>
+
+                <div class="col-sm-10">
+                  <input type="text" name="payment_cloudpayments_apisecret" value="{{ payment_cloudpayments_apisecret }}" id="payment_cloudpayments_apisecret" class="form-control"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab-statuscodes">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="payment_cloudpayments_pay_status_id">{{ entry_pay_status }}</label>
+
+                <div class="col-sm-10">
+                  <select name="payment_cloudpayments_pay_status_id" id="payment_cloudpayments_pay_status_id" class="form-control">
+                    {% for order_status in order_statuses %}
+                    {% if order_status.order_status_id == payment_cloudpayments_pay_status_id %}
+                    <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+                    {% else %}
+                    <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab-about">
+              <table class="form">
+                <tr>
+                  <td>{{ text_about_logo }}<br><br><br></td>
+                </tr>
+                <tr>
+                  <td>Module version</td>
+                  <td>{{ text_version }}</td>
+                </tr>
+                <tr>
+                  <td>Website</td>
+                  <td>{{ text_about_link }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary">
+          <i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+	jQuery('.payment_cloudpayments_url').click(function (e) {
+		jQuery(this).select();
+	});
+</script>
+
+{{ footer }}

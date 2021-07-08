@@ -1,0 +1,173 @@
+/* Colors */
+
+$body-color: #000000
+$block-color: #333333
+$block-color-dark: #222222
+$block-color-light: rgba(51, 51, 51, 0.3)
+$main-color: #222222
+$title-color: #ffffff
+$text-color: #d4d4d4
+$accent-color: #27ffff
+$func-block-back: rgba(96, 96, 96, 0.3)
+
+$red: #ff2626
+$yellow: #dbc41e
+
+/* Gradients */
+
+$category-grad: linear-gradient(135deg, #27D1D1 0%, #1b8eb5 100%)
+$button-grad: linear-gradient(135deg, #27FFFF 0%, #27D1D1 100%)
+$func-button-grad: linear-gradient(#333333 0%, #2d2d2d 100%)
+$func-button-grad-hover: linear-gradient(#d4d4d4 0%, #a0a0a0 100%)
+$func-block-grad: linear-gradient(135deg, rgba(96, 96, 96, 0.4) 0%, rgba(150, 150, 150, 0.1) 100%)
+
+/* Shadows */
+
+$main-block-shadow: 0 1.5rem 2rem rgba(0,0,0,0.3)
+$main-block-shadow-reverse: 0 -1.5rem 2rem rgba(0,0,0,0.3)
+
+/* Media screen */
+
+$screen-xs-min: 480px
+$screen-sm-min: 768px
+$screen-md-min: 992px
+$screen-lg-min: 1200px
+
+$screen-xs-max: 479px
+$screen-sm-max: 767px
+$screen-md-max: 991px
+$screen-lg-max: 1199px
+
+/* Basic styles */
+    
+body, html
+    display: flex
+    flex-flow: column nowrap
+    height: 100%
+    background-color: $body-color
+    color: $text-color
+    font:
+        family: 'Open Sans', sans-serif
+        size: 10px
+        weight: 400
+    letter-spacing: .1rem
+    line-height: 1
+    -webkit-text-size-adjust: none
+
+p
+    line-height: 1.5
+    font-size: 1.4rem
+
+    a
+        color: $title-color
+
+label
+    font-size: 1.2rem
+    font-weight: 400
+
+legend
+    border-width: .3rem
+    border-color: $block-color
+    font-size: 1.6rem
+    font-weight: 400
+    color: $title-color
+    line-height: 2.5
+    margin-bottom: 2rem
+
+@media (max-width: $screen-sm-max)
+
+    legend
+        margin-bottom: 1rem
+
+.no-scroll
+    overflow: hidden
+    position: relative
+
+h1, h2, h3, h4, h5
+    color: $title-color
+    line-height: 1.5
+
+h1
+    font-size: 3rem
+
+h2
+    font-size: 2.6rem
+
+a
+    color: $text-color
+    transition: .2s ease color
+
+    &:hover, &:focus
+        color: $accent-color
+        outline: none
+        text-decoration: none
+
+.img-thumbnail
+    border-radius: 0
+    border: none
+
+.main
+    background-color: $main-color
+    flex: 1
+
+    &Title
+        color: $title-color
+        line-height: 1.5
+        font-size: 2.2rem
+        font-weight: 400
+        text-transform: uppercase
+        margin-top: 3rem
+        margin-bottom: 2rem
+
+#common-home #content
+
+    .mainTitle
+        text-align: center
+
+/* Default Opencart Styles */
+
+@media (min-width: $screen-lg-min)
+	#content .col-lg-2:nth-child(6n+1),
+	#content .col-lg-3:nth-child(4n+1),
+	#content .col-lg-4:nth-child(3n+1),
+	#content .col-lg-6:nth-child(2n+1)
+		clear: left
+            
+@media (min-width: $screen-md-min) and (max-width: $screen-lg-max)
+	#content .col-md-2:nth-child(6n+1),
+	#content .col-md-3:nth-child(4n+1),
+	#content .col-md-4:nth-child(3n+1),
+	#content .col-md-6:nth-child(2n+1)
+		clear: left
+            
+@media (min-width: $screen-sm-min) and (max-width: $screen-md-max)
+	#content .col-sm-2:nth-child(6n+1),
+	#content .col-sm-3:nth-child(4n+1),
+	#content .col-sm-4:nth-child(3n+1),
+	#content .col-sm-6:nth-child(2n+1)
+		clear: left
+
+/* fixed colum left + content + right*/
+@media (min-width: $screen-sm-min)
+    #column-left  .product-layout .col-md-3
+        width: 100%
+        
+    #column-left + #content .product-layout .col-md-3
+        width: 50%
+        
+    #column-left + #content + #column-right .product-layout .col-md-3
+        width: 100%
+    
+    #content + #column-right .product-layout .col-md-3
+        width: 100%
+
+/* fixed product layouts used in left and right columns */
+#column-left .product-layout, #column-right .product-layout
+    width: 100%
+
+/* Required */
+
+div.required .control-label:before
+	content: '* '
+	color: $red
+	font-weight: bold

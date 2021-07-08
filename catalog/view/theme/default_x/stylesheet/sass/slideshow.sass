@@ -1,0 +1,242 @@
+/* Slideshow */
+
+.swiper-home
+    background-color: $block-color
+    box-shadow: $main-block-shadow
+
+    .swiper-viewport
+        background-color: transparent
+        border: none
+
+        &:hover
+
+            .swiper-button-next, .swiper-button-prev
+                background-color: transparent
+
+        .swiper-button-next, .swiper-button-prev
+            opacity: 1
+
+    .swiper-pager
+        position: static
+
+.swiper-viewport
+    background-color: #fff
+    border: none!important
+    border-radius: 0!important
+    box-shadow: none!important
+    margin: 0 auto 3rem!important
+    max-width: 135rem!important
+    position: relative!important
+
+    img
+        margin: 0 auto
+
+    .swiper-pagination
+        bottom: .5rem
+        width: 100%
+
+        span
+            margin: 0 .3rem
+            
+        .swiper-pagination-bullet
+            background: $body-color
+            box-shadow: none
+            width: .8rem
+            height: .8rem
+            opacity: .2
+
+            &-active
+                background-color: $block-color
+                opacity: 1
+
+    .swiper-pager
+
+        .swiper-button-next, .swiper-button-prev
+            background-size: 10px 20px
+
+            &:before
+                display: none
+
+        .swiper-button-next
+            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%23d4d4d4'/%3E%3C/svg%3E")
+
+        .swiper-button-prev
+            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='%23d4d4d4'/%3E%3C/svg%3E")
+
+.slideshowHome, .slideshow
+    max-width: 120rem
+
+    &__item
+        background-size: cover
+        background-position: center
+        background-repeat: no-repeat
+        min-height: 40rem
+        height: auto!important
+
+    &__buttons
+
+        &-prev, &-next
+            background-size: 10px 20px!important
+
+        &-prev
+            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='%23d4d4d4'/%3E%3C/svg%3E")!important
+            left: 1.6rem!important
+
+        &-next
+            background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%23d4d4d4'/%3E%3C/svg%3E")!important
+            right: 1.6rem!important
+
+    &__pagination
+        width: 100%
+        text-align: center
+        bottom: .5rem!important
+
+        span
+            margin: 0 .3rem
+
+        .swiper-pagination-bullet-active
+            background-color: $text-color
+
+.slideItem
+    align-items: center
+    display: flex
+
+    &__wrapper
+        display: flex
+        justify-content: flex-start
+        width: 100%
+        height: 100%
+        padding-top: 2rem
+        padding-bottom: 2rem
+
+    &__inner
+        background-color: rgba(0,0,0,0.8)
+        width: 50%
+        padding: 3rem
+
+    &__title
+        color: $title-color
+        font-size: 3rem
+        margin-top: 0
+        margin-bottom: 2rem
+        line-height: 1.5
+
+        a
+            color: inherit
+
+            &:hover, &:focus
+                color: $accent-color
+
+    &__text
+        cursor: default
+        font-size: 1.6rem
+        line-height: 2.5rem
+        margin-top: 0
+        margin-bottom: 2rem
+    
+    &__link
+        color: $accent-color
+        font-size: 1.6rem
+
+        &:hover, &:focus
+            color: darken($accent-color, 20%)
+
+        &-alone
+            width: 100%
+            min-height: 40rem
+
+@media (min-width: 1366px)
+    .slideshowHome
+
+        &__buttons
+
+            &-prev, &-next
+                background-size: 16px 26px!important
+                top: 2.2rem!important
+                height: 100%!important
+                width: 7.45rem!important
+                transition: .2s ease background-color
+                
+                &:hover
+                    background-color: rgba(0,0,0,0.3)!important
+                
+                &:active
+                    background-color: rgba(0,0,0,0.5)!important
+
+            &-prev
+                left: 0!important
+
+            &-next
+                right: 0!important
+
+@media (max-width: $screen-md-max)
+    .swiper-home
+
+        .container
+            min-width: 50%
+
+    .slideItem
+
+        &__inner
+            width: 100%
+
+        &__title
+            font-size: 2.4rem
+            margin-top: 0
+            margin-bottom: 2rem
+
+        &__text
+            font-size: 1.4rem
+            line-height: 2.5rem
+            margin-top: 0
+            margin-bottom: 2rem
+        
+        &__link
+            color: $accent-color
+            font-size: 1.4rem
+
+@media (max-width: $screen-sm-max)
+    .swiper-home
+
+        .container
+            min-width: 100%
+
+@media (min-width: $screen-sm-min)
+
+    .swiper-viewport
+
+        .swiper-button
+
+            &-prev, &-next
+                opacity: 0
+                transition: all .3s ease
+                
+            &-prev
+                left: -2rem
+                
+            &-next
+                right: -2rem
+        
+        .swiper-pagination
+            bottom: -2rem
+            opacity: 0
+            transition: all .3s ease
+
+        &:hover
+        
+            .swiper-pagination
+                bottom: .5rem
+                opacity: 1
+        
+            .swiper-button
+
+                &-prev, &-next
+                    background-color: rgba(0,0,0,0.5)
+                    width: 4rem
+                    opacity: 1
+
+                &-prev
+                    left: 1rem
+
+                &-next
+                    right: 1rem

@@ -1,0 +1,58 @@
+/* Inputs */
+
+input[type=checkbox], input[type=radio]
+    margin: 0
+
+input[type=text], input[type=submit], textarea
+    -webkit-appearance: none
+
+.fixedAlignInput
+    align-items: center
+    justify-content: flex-end
+    display: flex
+    flex-flow: row wrap
+
+    input[type=submit], input[type=button]
+        margin-left: 1rem
+
+    &__mainBlock
+        display: flex
+        align-items: center
+    
+        input[type=checkbox], input[type=radio], p
+
+        p
+            font-size: 1.2rem
+            text-align: right
+            margin: .7rem 1rem .7rem 0
+
+.form-control
+    display: inline-block
+    border: none
+    border-radius: 0
+    box-shadow: none
+    margin-bottom: .5rem
+    padding: .7rem 1.4rem
+    transition: .3s
+
+    &:active, &:focus
+        background-color: rgba(255,255,255,0.8)
+        border-color: transparent
+        box-shadow: none
+
+.input-group-addon
+    background-color: $block-color
+    background-image: $func-button-grad
+    border-radius: 0
+    border: none
+    color: $text-color
+    font-size: 1.4rem
+    padding: .6rem 1.2rem
+
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:first-child>.btn-group:not(:first-child)>.btn, .input-group-btn:first-child>.btn:not(:first-child), .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn, .input-group-btn:last-child>.dropdown-toggle
+    border-radius: 0
+
+/* Labels */
+
+.checkbox label, .radio label
+    font-size: 1.2rem

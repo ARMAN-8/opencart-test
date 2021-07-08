@@ -1,0 +1,69 @@
+<span class="listMenu__link miniCart" onclick="openSection('listMenu__cart')"><i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ text_cart_menu }}</span>
+<div id="cart" class="listMenu__wrapper listMenu__cart">
+  <span class="closeButton visible-sm visible-xs" onclick="closeSection('listMenu__cart')"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+  <ul class="menuDropdown list-unstyled">
+    {% if products or vouchers %}
+    <li class="menuDropdown__element menuDropdown__products">
+      <table class="table">
+        {% for product in products %}
+        <tr class="cartProducts">
+          <td class="cartProducts__img text-left">{% if product.thumb %}
+            <a class="cartProducts__link" href="{{ product.href }}">
+              <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" />
+            </a> {% endif %}</td>
+          <td class="cartProducts__name text-left">
+            <a class="cartProducts__link" href="{{ product.href }}">{{ product.name }}</a> {% if product.option %} {% for option in product.option %}
+            <br /> -
+            <small>{{ option.name }} {{ option.value }}</small> {% endfor %} {% endif %} {% if product.recurring %}
+            <br /> -
+            <small>{{ text_recurring }} {{ product.recurring }}</small> {% endif %}</td>
+          <td class="cartProducts__quantity text-right">x {{ product.quantity }}</td>
+          <td class="cartProducts__total text-right">{{ product.total }}</td>
+          <td class="cartProducts__remove text-center">
+            <button type="button" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}" class="cartProducts__removeButton">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        {% endfor %} {% for voucher in vouchers %}
+        <tr class="cartVouchers">
+          <td class="cartVouchers__name text-left" colspan="2">{{ voucher.description }}</td>
+          <td class="cartVouchers__quantity text-right">x&nbsp;1</td>
+          <td class="cartVouchers__total text-right">{{ voucher.amount }}</td>
+          <td class="cartVouchers__remove text-center">
+            <button type="button" onclick="voucher.remove('{{ voucher.key }}');" title="{{ button_remove }}" class="cartVouchers__removeButton cartProducts__removeButton">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </li>
+    <li class="menuDropdown__element">
+      <div>
+        <table class="table">
+          {% for total in totals %}
+          <tr class="cartInfo">
+            <td class="cartInfo__description text-left">
+              {{ total.title }}: {{ total.text }}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        <p class="cartButtons text-left">
+          <a class="cartButtons__link" href="{{ cart }}">
+            <i class="fa fa-shopping-cart"></i> {{ text_cart }}
+          </a>&nbsp;&nbsp;&nbsp;
+          <a class="cartButtons__link" href="{{ checkout }}">
+            <i class="fa fa-share"></i> {{ text_checkout }}
+          </a>
+        </p>
+      </div>
+    </li>
+    {% else %}
+    <li class="menuDropdown__element">
+      <p class="menuDropdown__link">{{ text_empty }}</p>
+    </li>
+    {% endif %}
+  </ul>
+</div>
